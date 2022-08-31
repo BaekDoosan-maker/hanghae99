@@ -1,7 +1,7 @@
 function check(form) {
     if(form.userid.value=="doosan") {
        if(form.userpassword.value=="1234") {
-             window.open('target.html')
+             window.open('http://43.200.181.42/')
        } else {
            alert('비밀번호가 유효하지 않습니다.');
        }

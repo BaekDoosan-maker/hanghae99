@@ -16,7 +16,7 @@ def home():
     return render_template('signup.html')
 
 @app.route('/')
-def home():
+def home2():
     return render_template('movie.html')
 # movie.html 추가 -> python 테마로 변경할예정 movie 명칭 -> python으로 변경해야함
 
@@ -86,4 +86,4 @@ def web_mars_get():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5700, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
