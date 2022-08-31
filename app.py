@@ -13,7 +13,7 @@ db = client.dbsparta
 
 @app.route('/')
 def home():
-    return render_template('membership.html')
+    return render_template('signup.html')
 
 @app.route("/movie", methods=["POST"])
 def movie_post():
