@@ -15,6 +15,11 @@ db = client.dbsparta
 def home():
     return render_template('signup.html')
 
+@app.route('/')
+def home():
+    return render_template('movie.html')
+# movie.html 추가 -> python 테마로 변경할예정 movie 명칭 -> python으로 변경해야함
+
 @app.route("/movie", methods=["POST"])
 def movie_post():
     url_receive = request.form['url_give']
