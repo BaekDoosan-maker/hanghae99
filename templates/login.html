@@ -2,33 +2,63 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<!-- kakao 간편 로그인 api 영역-->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+          //e3c04fecad73ab552d72eb27d783e6d2
+          window.Kakao.init("e3c04fecad73ab552d72eb27d783e6d2");
+          function kakaoLogin(){
+            window.Kakao.Auth.login({
+              scope: 'profile, account_email, gender',
+              success: function (authObj) {
+                console.log(authObj);
+                window.Kakao.API.request({
+                    url:'/v2/user/me',
+                    success: res => {
+                        const kakao_account = res.kakao_account;
+                        console.log(kakao_account);
+                    }
+                });
+              }
+            });
+          }
+        </script>
+
+<!-- 항해99 로그인창 영역 시작-->
     <section class="login-form" lang="ko">
-        <h1>항해99</h1>
+        <h1 style="color:white"> 항해99 </h1>
         <form action="">
             <div class="int-area">
                 <input type="text" name="id" id="id"
                 autocomplete="off" required>
-                <label for="id">ID를 입력해주세요</label>
+                <label for="id">example@email.com</label>
             </div>
             <div class="int-area">
                 <input type ="password" name="pw" id="pw"
                 autocomplete="off" required>
-                <label for="pw">비밀번호를 입력해주세요</label>
+                <label for="pw">password</label>
             </div>
           <div class="btn-area">
             <button id="btn"
             type="submit">로그인</button>
           </div>
+
         </form>
       <div class="caption">
-         <a href="http://sparta-bds.shop/">회원가입</a>
-          <!-- 회원가입 페이지 signup.html 연결하기
-          -->
+           <!-- 카카오 버튼 영역  -->
+          <div class="kakao-btn-area">
+              <a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:50px;width:auto;"></a>
+          </div>
+          <br>
+           <a href="signup.html">회원가입</a>
+
+          <!-- 회원가입 페이지 signup.html 연결하기-->
 
       </div>
     </section>
@@ -55,6 +85,7 @@
             }
         });
     </script>
+
 
 </body>
 </html>

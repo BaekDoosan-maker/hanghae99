@@ -9,6 +9,14 @@ from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.9cihgwo.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
+# kakao login
+@app.route('/')
+def home3():
+    return render_template('login.html')
+
+#@app.route('/')
+#def kakaoLogin():
+ #  return render_template('kakao_login')
 
 
 @app.route('/')
